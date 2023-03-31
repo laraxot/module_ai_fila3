@@ -1,0 +1,9 @@
+https://www.itsolutionstuff.com/post/how-to-use-openai-in-laravelexample.html
+
+https://inyomanjyotisa.medium.com/create-a-resume-generator-using-chatgpt-api-and-laravel-jetstream-66ff4ea3d49
+
+https://medium.com/@antoine.lame/how-to-generate-openapi-specs-for-laravel-e0f402da0c3e
+
+--- documentazione generata da openai
+https://uselaradoc.com/
+
