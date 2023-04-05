@@ -14,16 +14,19 @@ use OpenAI\Laravel\Facades\OpenAI;
 /**
  * Class CategoryAction.
  */
-class Try01Action extends XotBasePanelAction {
+class Try01Action extends XotBasePanelAction
+{
     public bool $onItem = true;
 
     public string $icon = '<i class="bi bi-bookmark"></i>01';
 
-    public function handle() {
+    public function handle()
+    {
         return $this->handle02();
     }
 
-    public function handle01() {
+    public function handle01()
+    {
         $result = OpenAI::completions()->create([
             'model' => 'text-davinci-003',
             'prompt' => 'PHP is',
@@ -32,7 +35,8 @@ class Try01Action extends XotBasePanelAction {
         dddx($result);
     }
 
-    public function handle02() {
+    public function handle02()
+    {
         $search = 'laravel get ip address';
 
         $data = Http::withHeaders([
