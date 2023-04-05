@@ -19,5 +19,13 @@
         "psr-4": {
             "Modules\\AI\\": ""
         }
+    },
+    "require": {
+        "openai-php/laravel": "^0.4.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     }
 }

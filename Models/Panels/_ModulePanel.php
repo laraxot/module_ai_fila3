@@ -12,7 +12,7 @@ use Modules\Cms\Models\Panels\XotBasePanel;
 class _ModulePanel extends XotBasePanel {
     public function actions(): array {
         return [
-            // new Actions\TestAction(),
+            new Actions\Try01Action(),
             // new Actions\UpdateMailTemplateAction(),
         ];
     }
