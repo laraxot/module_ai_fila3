@@ -20,3 +20,11 @@ https://dev.to/anmolbaranwal/15-chatgpt-plugins-to-hack-productivity-1e8d
 https://dev.to/epavanello/cheatgpt-on-product-hunt-30ih
 
 
+https://benjamincrozat.com/php-ai
+
+https://francescomansi.me/guide/come-utilizzare-le-api-di-openai-con-laravel
+
+https://ahmadrosid.com/blog/laravel-openai-tutorial
+
+
+
