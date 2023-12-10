@@ -28,3 +28,4 @@ Homestead.json
 *.phar
 *.cache
 *.log
+*.lock
