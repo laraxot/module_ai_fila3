@@ -24,3 +24,7 @@ Homestead.json
 
 *.lock
 
+/vendor
+*.phar
+*.cache
+*.log
