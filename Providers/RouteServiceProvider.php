@@ -1,7 +1,4 @@
 <?php
-
-declare(strict_types=1);
-
 declare(strict_types=1);
 
 namespace Modules\AI\Providers;
@@ -13,7 +10,7 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider {
     /**
      * The module namespace to assume when generating URLs to actions.
      */
-    protected string $moduleNamespace = 'Modules\Forum\Http\Controllers';
+    protected string $moduleNamespace = 'Modules\AI\Http\Controllers';
 
     protected string $module_dir = __DIR__;
 
