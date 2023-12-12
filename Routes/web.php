@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('ai')->group(function() {
+Route::prefix('ai')->group(function () {
     Route::get('/', 'AIController@index');
 });
