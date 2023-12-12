@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Modules\AI\Providers;
@@ -6,7 +7,8 @@ namespace Modules\AI\Providers;
 // --- bases ---
 use Modules\Xot\Providers\XotBaseRouteServiceProvider;
 
-class RouteServiceProvider extends XotBaseRouteServiceProvider {
+class RouteServiceProvider extends XotBaseRouteServiceProvider
+{
     /**
      * The module namespace to assume when generating URLs to actions.
      */
