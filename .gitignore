@@ -30,8 +30,5 @@ Homestead.json
 *.log
 *.lock
 .php-cs-fixer.cache
-<<<<<<< HEAD
-=======
 package-lock.json
 .git-rewrite/
->>>>>>> 0d6d178f3e985546ceaecf52e0d93de5036a7927
