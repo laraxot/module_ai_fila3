@@ -31,3 +31,4 @@ Homestead.json
 *.lock
 .php-cs-fixer.cache
 package-lock.json
+.git-rewrite/
