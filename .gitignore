@@ -30,3 +30,4 @@ Homestead.json
 *.log
 *.lock
 .php-cs-fixer.cache
+package-lock.json
