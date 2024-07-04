@@ -23,17 +23,12 @@
             "Modules\\AI\\": ""
         }
     },
-    "require": {
+    "require_comment": {
         "openai-php/laravel": "^0.4.1",
         "thecodingmachine/safe": "^2.5"
     },
-    "config": {
-        "allow-plugins": {
-            "php-http/discovery": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
-        }
-    },
-    "require-dev": {
+    
+    "require-dev_comment": {
         "laravel/pint": "^1.13",
         "nunomaduro/phpinsights": "^2.11",
         "larastan/larastan": "^2.7",
@@ -58,5 +53,11 @@
             "type": "path",
             "url": "../UI"
         }
-    ]
+    ],
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
 }
