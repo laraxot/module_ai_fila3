@@ -14,6 +14,7 @@ class EventServiceProvider extends BaseEventServiceProvider
      * @var bool
      */
     protected static $shouldDiscoverEvents = true;
+
     /**
      * The event handler mappings for the application.
      *
