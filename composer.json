@@ -59,5 +59,8 @@
             "php-http/discovery": true,
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
+    },
+    "require": {
+        "openai-php/laravel": "^0.10.1"
     }
 }
