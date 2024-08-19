@@ -6,6 +6,6 @@ return [
     'name' => 'AI',
     // 'icon' => 'heroicon-o-cog', // icon on dashboard
     // 'icon' => 'fas-air-freshener',
-    'icon' => 'icon-brain',
+    'icon' => 'ui-brain',
     'navigation_sort' => 1,
 ];
