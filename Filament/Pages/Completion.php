@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\AI\Filament\Pages;
 
+use Filament\Actions\Action;
 use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Forms\ComponentContainer;
@@ -11,8 +12,10 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 use Filament\Pages\Page;
+use Filament\Support\Exceptions\Halt;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Modules\AI\Actions\CompletionAction;
 
 /**
  * @property ComponentContainer $form
@@ -26,7 +29,7 @@ class Completion extends Page implements HasForms
 
     protected static string $view = 'ai::filament.pages.completion';
 
-    public ?array $data = [];
+    public ?array $completionData = [];
 
     public function mount(): void
     {
@@ -44,19 +47,20 @@ class Completion extends Page implements HasForms
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Profile Information')
-                    ->description('Update your account\'s profile information and email address.')
-                    ->schema([
-                        Forms\Components\TextInput::make('name')
-                            ->required(),
-                        Forms\Components\TextInput::make('email')
-                            ->email()
-                            ->required()
-                            ->unique(ignoreRecord: true),
-                    ]),
+                Forms\Components\Textarea::make('prompt')
+                    ->required(),
             ])
             ->model($this->getUser())
-            ->statePath('profileData');
+            ->statePath('completionData');
+    }
+
+    protected function getCompletionFormActions(): array
+    {
+        return [
+            Action::make('completionAction')
+                ->label(__('filament-panels::pages/auth/edit-profile.form.actions.save.label'))
+                ->submit('completionForm'),
+        ];
     }
 
     protected function getUser(): Authenticatable&Model
@@ -75,5 +79,18 @@ class Completion extends Page implements HasForms
         $data = $this->getUser()->attributesToArray();
 
         $this->completionForm->fill($data);
+    }
+
+    public function completion(): void
+    {
+        try {
+            $data = $this->completionForm->getState();
+            $prompt = $data['prompt'];
+            $res = app(CompletionAction::class)->execute($prompt);
+
+            // $this->handleRecordUpdate($this->getUser(), $data);
+        } catch (Halt $exception) {
+            return;
+        }
     }
 }
