@@ -20,14 +20,15 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\AI\\": ""
+            "Modules\\AI\\": "",
+            "Modules\\AI\\Database\\Factories\\": "database/factories/",
+            "Modules\\AI\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "require_comment": {
         "openai-php/laravel": "^0.4.1",
         "thecodingmachine/safe": "^2.5"
     },
-    
     "require-dev_comment": {
         "laravel/pint": "^1.13",
         "nunomaduro/phpinsights": "^2.11",
@@ -57,10 +58,12 @@
     "config": {
         "allow-plugins": {
             "php-http/discovery": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "codewithkyrian/transformers-libsloader": true
         }
     },
     "require": {
-        "openai-php/laravel": "^0.10.1"
+        "openai-php/laravel": "^0.10.1",
+        "codewithkyrian/transformers": "^0.5.2"
     }
 }

@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\AI\Filament\Pages;
 
+<<<<<<< HEAD
+=======
+use Exception;
+>>>>>>> 4b612bf07fd8062b38e5db468a4fd29117086a11
 use Filament\Actions\Action;
 use Filament\Facades\Filament;
 use Filament\Forms;
@@ -37,6 +41,7 @@ class Completion extends Page implements HasForms
         $this->fillForms();
     }
 
+<<<<<<< HEAD
     protected function getForms(): array
     {
         return [
@@ -44,6 +49,8 @@ class Completion extends Page implements HasForms
         ];
     }
 
+=======
+>>>>>>> 4b612bf07fd8062b38e5db468a4fd29117086a11
     public function completionForm(Form $form): Form
     {
         return $form
@@ -55,6 +62,7 @@ class Completion extends Page implements HasForms
             ->statePath('completionData');
     }
 
+<<<<<<< HEAD
     protected function getCompletionFormActions(): array
     {
         return [
@@ -82,6 +90,8 @@ class Completion extends Page implements HasForms
         $this->completionForm->fill($data);
     }
 
+=======
+>>>>>>> 4b612bf07fd8062b38e5db468a4fd29117086a11
     public function completion(): void
     {
         try {
@@ -97,4 +107,41 @@ class Completion extends Page implements HasForms
             return;
         }
     }
+<<<<<<< HEAD
+=======
+
+    protected function getForms(): array
+    {
+        return [
+            'completionForm',
+        ];
+    }
+
+    protected function getCompletionFormActions(): array
+    {
+        return [
+            Action::make('completionAction')
+                ->label(__('filament-panels::pages/auth/edit-profile.form.actions.save.label'))
+                ->submit('completionForm'),
+        ];
+    }
+
+    protected function getUser(): Authenticatable&Model
+    {
+        $user = Filament::auth()->user();
+
+        if (! $user instanceof Model) {
+            throw new Exception('The authenticated user object must be an Eloquent model to allow the profile page to update it.');
+        }
+
+        return $user;
+    }
+
+    protected function fillForms(): void
+    {
+        $data = $this->getUser()->attributesToArray();
+
+        $this->completionForm->fill($data);
+    }
+>>>>>>> 4b612bf07fd8062b38e5db468a4fd29117086a11
 }
