@@ -38,7 +38,3 @@ package-lock.json
 node_modules
 node_modules
 vendor
-vendor/
-build/
-docs/cache/
-cache/
