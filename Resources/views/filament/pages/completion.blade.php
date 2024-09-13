@@ -2,7 +2,7 @@
     <x-filament-panels::form wire:submit="completion">
         {{ $this->completionForm }}
 
-        <x-filament-panels::form.actions 
+        <x-filament-panels::form.actions
             :actions="$this->getCompletionFormActions()"
         />
 

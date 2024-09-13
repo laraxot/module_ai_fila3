@@ -7,12 +7,12 @@ declare(strict_types=1);
 
 namespace Modules\AI\Actions;
 
-use function Codewithkyrian\Transformers\Pipelines\pipeline;
-
-// 002 importing the Transformers class
 use Codewithkyrian\Transformers\Transformers;
-// 003 importing the pipeline function
+// 002 importing the Transformers class
 use Spatie\QueueableAction\QueueableAction;
+
+// 003 importing the pipeline function
+use function Codewithkyrian\Transformers\Pipelines\pipeline;
 
 class SentimentAction
 {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\AI\Filament\Pages;
 
+use Exception;
 use Filament\Actions\Action;
 use Filament\Facades\Filament;
 use Filament\Forms;
@@ -37,13 +38,6 @@ class Completion extends Page implements HasForms
         $this->fillForms();
     }
 
-    protected function getForms(): array
-    {
-        return [
-            'completionForm',
-        ];
-    }
-
     public function completionForm(Form $form): Form
     {
         return $form
@@ -53,33 +47,6 @@ class Completion extends Page implements HasForms
             ])
             ->model($this->getUser())
             ->statePath('completionData');
-    }
-
-    protected function getCompletionFormActions(): array
-    {
-        return [
-            Action::make('completionAction')
-                ->label(__('filament-panels::pages/auth/edit-profile.form.actions.save.label'))
-                ->submit('completionForm'),
-        ];
-    }
-
-    protected function getUser(): Authenticatable&Model
-    {
-        $user = Filament::auth()->user();
-
-        if (! $user instanceof Model) {
-            throw new \Exception('The authenticated user object must be an Eloquent model to allow the profile page to update it.');
-        }
-
-        return $user;
-    }
-
-    protected function fillForms(): void
-    {
-        $data = $this->getUser()->attributesToArray();
-
-        $this->completionForm->fill($data);
     }
 
     public function completion(): void
@@ -96,5 +63,39 @@ class Completion extends Page implements HasForms
         } catch (Halt $exception) {
             return;
         }
+    }
+
+    protected function getForms(): array
+    {
+        return [
+            'completionForm',
+        ];
+    }
+
+    protected function getCompletionFormActions(): array
+    {
+        return [
+            Action::make('completionAction')
+                ->label(__('filament-panels::pages/auth/edit-profile.form.actions.save.label'))
+                ->submit('completionForm'),
+        ];
+    }
+
+    protected function getUser(): Authenticatable&Model
+    {
+        $user = Filament::auth()->user();
+
+        if (! $user instanceof Model) {
+            throw new Exception('The authenticated user object must be an Eloquent model to allow the profile page to update it.');
+        }
+
+        return $user;
+    }
+
+    protected function fillForms(): void
+    {
+        $data = $this->getUser()->attributesToArray();
+
+        $this->completionForm->fill($data);
     }
 }
